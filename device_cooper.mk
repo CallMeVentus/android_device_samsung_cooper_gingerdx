@@ -137,6 +137,15 @@ PRODUCT_COPY_FILES += \
     device/samsung/cooper/sec_key.kl:system/usr/keylayout/sec_key.kl \
     device/samsung/cooper/sec_touchscreen.kl:system/usr/keylayout/sec_touchscreen.kl
 
+## GingerDX files
+#PRODUCT_COPY_FILES += \
+    #device/samsung/cooper/prebuilt/GalleryDX.apk:/system/app/GalleryDX.apk \
+    #device/samsung/cooper/prebuilt/GDXUpdateNotify.apk:/system/app/GDXUpdateNotify.apk \
+    #device/samsung/cooper/prebuilt/HoloLauncher.apk:/system/app/HoloLauncher.apk \
+    #device/samsung/cooper/prebuilt/GPSCountryOptimizer.apk:/system/app/GPSCountryOptimizer.apk 
+    
+PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,device/samsung/cooper/prebuilt/system,system)
+
 PRODUCT_PROPERTY_OVERRIDES := \
     keyguard.no_require_sim=true \
     ro.com.android.dateformat=dd-MM-yyyy \
