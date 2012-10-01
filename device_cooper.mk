@@ -50,7 +50,10 @@ PRODUCT_PACKAGES += \
     lights.cooper \
     gralloc.cooper \
     setup_fs \
-    screencap
+    screencap \
+    CMParts \
+    CMScreenshot \
+    CMWallpapers
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
 	LOCAL_KERNEL := device/samsung/cooper/kernel
