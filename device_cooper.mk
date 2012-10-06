@@ -50,7 +50,10 @@ PRODUCT_PACKAGES += \
     lights.cooper \
     gralloc.cooper \
     setup_fs \
-    screencap
+    screencap \
+    CMParts \
+    CMScreenshot \
+    CMWallpapers
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
 	LOCAL_KERNEL := device/samsung/cooper/kernel
@@ -182,6 +185,26 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.dexopt-data-only=1 \
     ro.opengles.version=131072  \
     ro.compcache.default=0
+
+# GingerDX tweaks
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.themeId=ICSandwich \
+    persist.sys.themePackageName=com.achep.theme.ICSandwich
+    ro.ril.enable.a52=1 \
+    ro.ril.enable.a53=1
+
+# Turn off jni checks since they break FM Radio and Skype
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.kernel.android.checkjni=0
+
+# Default network type
+# 0 => WCDMA Preferred.
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.telephony.default_network=0 \
+    ro.telephony.call_ring.delay=0 \
+    ro.ril.hsupa.category=5 \
+    ro.ril.disable.power.collapse=1 \
+    pm.sleep_mode=1
 
 # See comment at the top of this file. This is where the other
 # half of the device-specific product definition file takes care
